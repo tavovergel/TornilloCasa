@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Completa de Tornillos para Construcción</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #215387 0%, #eaeadd 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            padding: 40px 0;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .filter-section {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .filter-section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .filter-btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+        
+        .filter-btn.active {
+            background: #4c51bf;
+            box-shadow: 0 4px 15px rgba(76, 81, 191, 0.4);
+        }
+        
+        .tornillos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .tornillo-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .tornillo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+        
+        .tornillo-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .tornillo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        
+        .tornillo-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2d3748;
+        }
+        
+        .tornillo-category {
+            background: #edf2f7;
+            color: #667eea;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .tornillo-details {
+            margin: 15px 0;
+        }
+        
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            padding: 5px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: #4a5568;
+        }
+        
+        .detail-value {
+            color: #667eea;
+            font-weight: 500;
+        }
+        
+        .tornillo-uses {
+            margin-top: 15px;
+        }
+        
+        .uses-title {
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+        
+        .uses-list {
+            color: #4a5568;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .calculator-section {
+            background: linear-gradient(135deg, #4763f2 100%, #191a05 50%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+        
+        .calculator-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .calc-input {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+        
+        .calc-input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .calc-result {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .tornillos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+                <img src="logo casa.png" alt="casa del tornillo"style="height: 80px; vertical-align: middle;"> Guía de la Casa del Tornillo
+            
+            </h1>
+            <p>Todo lo que necesitas saber sobre tornillos para construcción</p>
+        </div>
+        
+        <div class="content">
+            <div class="filter-section">
+                <h3>Filtrar por uso:</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="todos">Todos</button>
+                    <button class="filter-btn" data-filter="madera">Madera</button>
+                    <button class="filter-btn" data-filter="metal">Metal</button>
+                    <button class="filter-btn" data-filter="concreto">Concreto</button>
+                    <button class="filter-btn" data-filter="drywall">Drywall</button>
+                    <button class="filter-btn" data-filter="exterior">Exterior</button>
+                </div>
+            </div>
+            
+            <div class="tornillos-grid" id="tornillosGrid">
+                <!-- Los tornillos se generarán aquí con JavaScript -->
+            </div>
+        </div>
+        
+        <div class="calculator-section">
+            <h3 class="calculator-title">🧮 Calculadora de Tornillos</h3>
+            <div class="calculator-grid">
+                <input type="number" class="calc-input" id="longitud" placeholder="Longitud del proyecto (cm)">
+                <input type="number" class="calc-input" id="ancho" placeholder="Ancho del proyecto (cm)">
+                <input type="number" class="calc-input" id="separacion" placeholder="Separación entre tornillos (cm)">
+            </div>
+            <div class="calc-result" id="resultado">
+                Ingresa las medidas para calcular cuántos tornillos necesitas
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tornillosData = [
+            {
+                nombre: "Tornillo para Madera",
+                categoria: "madera",
+                icon: "🪵",
+                longitud: "25-200mm",
+                diametro: "3-10mm",
+                cabeza: "Plana/Phillips",
+                material: "Acero galvanizado",
+                usos: "Ensamble de muebles, marcos, estructuras de madera, carpintería general"
+            },
+            {
+                nombre: "Tornillo Autorroscante",
+                categoria: "metal",
+                icon: "⚙️",
+                longitud: "10-100mm",
+                diametro: "2.5-8mm",
+                cabeza: "Hexagonal/Phillips",
+                material: "Acero templado",
+                usos: "Unión de láminas metálicas, ductos, perfiles de acero, estructuras metálicas"
+            },
+            {
+                nombre: "Taquete con Tornillo",
+                categoria: "concreto",
+                icon: "🧱",
+                longitud: "40-120mm",
+                diametro: "6-12mm",
+                cabeza: "Hexagonal",
+                material: "Acero + Plástico",
+                usos: "Fijación a muros de concreto, ladrillo, instalación de repisas, cuadros pesados"
+            },
+            {
+                nombre: "Tornillo para Drywall",
+                categoria: "drywall",
+                icon: "🏠",
+                longitud: "25-65mm",
+                diametro: "3.5-4.2mm",
+                cabeza: "Trompeta/Phillips",
+                material: "Acero fosfatado",
+                usos: "Instalación de tablaroca, cielos falsos, divisiones interiores, acabados"
+            },
+            {
+                nombre: "Tornillo Inoxidable",
+                categoria: "exterior",
+                icon: "🌧️",
+                longitud: "15-150mm",
+                diametro: "3-8mm",
+                cabeza: "Varios tipos",
+                material: "Acero inoxidable 316",
+                usos: "Aplicaciones exteriores, ambientes húmedos, cocinas, baños, piscinas"
+            },
+            {
+                nombre: "Tornillo Cabeza Hexagonal",
+                categoria: "metal",
+                icon: "🔧",
+                longitud: "20-200mm",
+                diametro: "6-20mm",
+                cabeza: "Hexagonal",
+                material: "Acero grado 8.8",
+                usos: "Estructuras pesadas, maquinaria, conexiones de alta resistencia"
+            },
+            {
+                nombre: "Tornillo Tirafondo",
+                categoria: "madera",
+                icon: "🌲",
+                longitud: "60-300mm",
+                diametro: "8-16mm",
+                cabeza: "Hexagonal",
+                material: "Acero galvanizado",
+                usos: "Fijación de vigas, estructuras de techo, construcción pesada en madera"
+            },
+            {
+                nombre: "Tornillo Chipboard",
+                categoria: "madera",
+                icon: "📋",
+                longitud: "12-50mm",
+                diametro: "2.5-5mm",
+                cabeza: "Avellanada/Phillips",
+                material: "Acero zincado",
+                usos: "Muebles modulares, aglomerado, MDF, carpintería fina"
+            }
+        ];
+
+        function renderTornillos(filtro = 'todos') {
+            const grid = document.getElementById('tornillosGrid');
+            let tornillosFiltrados = tornillosData;
+            
+            if (filtro !== 'todos') {
+                tornillosFiltrados = tornillosData.filter(tornillo => tornillo.categoria === filtro);
+            }
+            
+            grid.innerHTML = tornillosFiltrados.map(tornillo => `
+                <div class="tornillo-card" data-categoria="${tornillo.categoria}">
+                    <div class="tornillo-header">
+                        <div class="tornillo-icon">${tornillo.icon}</div>
+                        <div>
+                            <div class="tornillo-title">${tornillo.nombre}</div>
+                            <div class="tornillo-category">${tornillo.categoria.toUpperCase()}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="tornillo-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Longitud:</span>
+                            <span class="detail-value">${tornillo.longitud}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Diámetro:</span>
+                            <span class="detail-value">${tornillo.diametro}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Cabeza:</span>
+                            <span class="detail-value">${tornillo.cabeza}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Material:</span>
+                            <span class="detail-value">${tornillo.material}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tornillo-uses">
+                        <div class="uses-title">Usos principales:</div>
+                        <div class="uses-list">${tornillo.usos}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Event listeners para filtros
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                renderTornillos(this.dataset.filter);
+            });
+        });
+
+        // Calculadora de tornillos
+        function calcularTornillos() {
+            const longitud = parseFloat(document.getElementById('longitud').value) || 0;
+            const ancho = parseFloat(document.getElementById('ancho').value) || 0;
+            const separacion = parseFloat(document.getElementById('separacion').value) || 15;
+            
+            if (longitud && ancho && separacion) {
+                const torrillosX = Math.ceil(longitud / separacion) + 1;
+                const torrillosY = Math.ceil(ancho / separacion) + 1;
+                const total = torrillosX * torrillosY;
+                const extra = Math.ceil(total * 0.1); // 10% extra
+                
+                document.getElementById('resultado').innerHTML = `
+                    <strong>Necesitas aproximadamente:</strong><br>
+                    ${total} tornillos + ${extra} extra (10%) = <strong>${total + extra} tornillos</strong><br>
+                    <small>Distribución: ${torrillosX} × ${torrillosY} con separación de ${separacion}cm</small>
+                `;
+            }
+        }
+
+        // Event listeners para la calculadora
+        ['longitud', 'ancho', 'separacion'].forEach(id => {
+            document.getElementById(id).addEventListener('input', calcularTornillos);
+        });
+
+        // Renderizar tornillos al cargar
+        renderTornillos();
+    </script>
+</body>
+</html>
